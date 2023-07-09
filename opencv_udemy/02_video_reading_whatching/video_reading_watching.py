@@ -1,16 +1,16 @@
 import cv2
 
-cap = cv2.VideoCapture("video.mp4") # 0 yazarsak wabcamden görüntü alırız
+cap = cv2.VideoCapture("video.mp4") # If we write 0, we get an image from the wabcam.
 
 while True:
     ret, frame = cap.read()
     
-    if ret == 0: # video bitince döngüden çıkmasını sağlıyor
+    if ret == 0: # makes the video go out of the loop when it's finished
         break 
 
-    frame = cv2.flip(frame, 1) #videoyu döndürme işlemi | 1 y eksenine göre tersini alır
+    frame = cv2.flip(frame, 1) #rotate video | 1 inverses about the y-axis
     cv2.imshow("video", frame)
-    if cv2.waitKey(10) & 0xFF == ord("q"): #q ya basıldığında ekranı kapatır.
+    if cv2.waitKey(10) & 0xFF == ord("q"): #Pressing q turns off the screen.
         break
 
 
